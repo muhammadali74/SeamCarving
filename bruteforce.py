@@ -97,7 +97,7 @@ def brute_seam(img):
         min_seam_helper(0, col)
 
 
-    print(" ",min_sum)
+    print(" ",  min_sum)
     return min_sum_seam
 
 
