@@ -50,7 +50,7 @@ def time_minimum_seams(paths):
 
 def image_generator():
     # image size
-    sizes = [5, 10, 15, 20]
+    sizes = [5, 7, 10, 15, 17]
     img_paths = []
 
     # generates images
@@ -109,15 +109,17 @@ def plot_individual_methods(label, dims, time_array):
 
 
 bf_images = image_generator()
+N = [180, 360, 480, 720, 1080]
+sizes_bf = [5, 7, 10, 15, 17]
 img_paths = ["img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg", "img5.jpg"]
 
-# Main function
 if __name__ == '__main__':
     times_dp, times_greedy, times_gpu = time_minimum_seams(img_paths)
     times_bruteforce = time_bf_seam(bf_images)
-    scales = np.arange(len(img_paths))
+    scales = N
+    dims_bf = sizes_bf
     plot_runtimes_all(scales, times_dp, times_greedy, times_bruteforce, times_gpu)
     plot_individual_methods("Dynamic Programming Seam Carving", scales, times_dp)
     plot_individual_methods("Greedy Approach Seam Carving", scales, times_greedy)
-    plot_individual_methods("Bruteforce Seam Carving", scales, times_bruteforce)
+    plot_individual_methods("Bruteforce Seam Carving", dims_bf, times_bruteforce)
     plot_individual_methods("GPU Parallelization", scales, times_gpu)
