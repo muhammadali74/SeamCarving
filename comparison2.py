@@ -107,4 +107,3 @@ if __name__ == '__main__':
     times_dp, times_greedy, times_gpu = time_algorithms(img_paths)
     plot_runtime_vs_scale(dims, times_dp, times_greedy, times_gpu)
     # plot_onealg("greedy")
-
