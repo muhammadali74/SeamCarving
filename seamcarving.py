@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 Usage: python carver.py <r/c> <scale> <image_in> <image_out>
 Copyright 2018 Karthik Karanth, MIT License
@@ -110,6 +108,8 @@ def main2(axis, scale, inp, output):
     
     imwrite(output, out)
 
+#main2("c", 0.75, "random_image.jpg", "outtt.jpg")
+'''
 def main():
     if len(sys.argv) != 5:
         print('usage: carver.py <r/c> <scale> <image_in> <image_out>', file=sys.stderr)
@@ -134,3 +134,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    '''
