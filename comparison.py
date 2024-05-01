@@ -50,7 +50,7 @@ def plot_runtime_vs_scale(scales, times1, times2):
 # Main function
 if __name__ == '__main__':
     scales = [0.25, 0.5, 0.75, 1]  # Add more scales as needed
-    times1, times2 = time_algorithms(scales)
+    times1, times2 = time_algorithms(image_path, scales)
     plot_runtime_vs_scale(scales, times1, times2)
 '''
 import time

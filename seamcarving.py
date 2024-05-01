@@ -61,14 +61,14 @@ def carve_column(img):
     mask = np.ones((r, c), dtype=bool)
 
     j = np.argmin(M[-1])
-    print(" ",M[-1, j])
+    # print(" ",M[-1, j])
     for i in reversed(range(r)):
         mask[i, j] = False
         j = backtrack[i, j]
 
     mask = np.stack([mask] * 3, axis=2)
     img = img[mask].reshape((r, c - 1, 3))
-    print("column carved")
+    # print("column carved")
     return img
 
 def minimum_seam(img):
@@ -108,7 +108,7 @@ def main2(axis, scale, inp, output):
     
     imwrite(output, out)
 
-#main2("c", 0.75, "random_image.jpg", "outtt.jpg")
+main2("c", 0.75, "random_image.jpg", "out4.jpg")
 '''
 def main():
     if len(sys.argv) != 5:

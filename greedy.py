@@ -68,7 +68,7 @@ def carve_column(img):
 
     mask = np.stack([mask] * 3, axis=2)
     img = img[mask].reshape((r, c - 1, 3))
-    print("column carved")
+    # print("column carved")
     return img
 
 

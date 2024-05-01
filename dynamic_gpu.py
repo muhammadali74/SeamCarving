@@ -65,7 +65,7 @@ def carve_column(img):
     mask = np.ones((r, c), dtype=bool)
 
     j = np.argmin(M[-1])
-    print(" ",M[-1, j])
+    # print(" ",M[-1, j])
     for i in reversed(range(r)):
         mask[i, j] = False
         j = backtrack[i, j]
