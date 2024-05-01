@@ -101,28 +101,41 @@ def brute_seam(img):
     return min_sum_seam
 
 
+def main2(axis, scale, inp, output):
+    img = imread(inp)
 
-def main():
-    if len(sys.argv) != 5:
-        print('usage: carver.py <r/c> <scale> <image_in> <image_out>', file=sys.stderr)
-        sys.exit(1)
-
-    which_axis = sys.argv[1]
-    scale = float(sys.argv[2])
-    in_filename = sys.argv[3]
-    out_filename = sys.argv[4]
-
-    img = imread(in_filename)
-
-    if which_axis == 'r':
+    if axis == 'r':
         out = crop_r(img, scale)
-    elif which_axis == 'c':
+    elif axis == 'c':
         out = crop_c(img, scale)
     else:
         print('usage: carver.py <r/c> <scale> <image_in> <image_out>', file=sys.stderr)
         sys.exit(1)
     
-    imwrite(out_filename, out)
+    imwrite(output, out)
 
-if __name__ == '__main__':
-    main()
+
+# def main():
+#     if len(sys.argv) != 5:
+#         print('usage: carver.py <r/c> <scale> <image_in> <image_out>', file=sys.stderr)
+#         sys.exit(1)
+
+#     which_axis = sys.argv[1]
+#     scale = float(sys.argv[2])
+#     in_filename = sys.argv[3]
+#     out_filename = sys.argv[4]
+
+#     img = imread(in_filename)
+
+#     if which_axis == 'r':
+#         out = crop_r(img, scale)
+#     elif which_axis == 'c':
+#         out = crop_c(img, scale)
+#     else:
+#         print('usage: carver.py <r/c> <scale> <image_in> <image_out>', file=sys.stderr)
+#         sys.exit(1)
+    
+#     imwrite(out_filename, out)
+
+# if __name__ == '__main__':
+#     main()

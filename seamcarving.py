@@ -108,7 +108,7 @@ def main2(axis, scale, inp, output):
     
     imwrite(output, out)
 
-main2("c", 0.75, "random_image.jpg", "out4.jpg")
+# main2("c", 0.75, "random_image.jpg", "out4.jpg")
 '''
 def main():
     if len(sys.argv) != 5:
