@@ -71,5 +71,5 @@ img_paths = ["img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg", "img5.jpg"]
 
 # Main function
 if __name__ == '__main__':
-    times_seamcarving, times_greedy, times_bruteforce, times_gpu = time_minimum_seams(img_paths)
-    plot_runtime_vs_scale(np.arange(len(img_paths)), times_seamcarving, times_greedy, times_bruteforce, times_gpu)
+    times_seamcarving, times_greedy, times_gpu = time_minimum_seams(img_paths)
+    plot_runtime_vs_scale(np.arange(len(img_paths)), times_seamcarving, times_greedy, times_gpu)
