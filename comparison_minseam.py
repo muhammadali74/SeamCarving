@@ -50,7 +50,7 @@ def time_minimum_seams(paths):
 
 def image_generator():
     # image size
-    sizes = [5, 7, 10, 15, 17]
+    sizes = [2, 5, 7, 10, 12]
     img_paths = []
 
     # generates images
@@ -110,7 +110,7 @@ def plot_individual_methods(label, dims, time_array):
 
 bf_images = image_generator()
 N = [180, 360, 480, 720, 1080]
-sizes_bf = [5, 7, 10, 15, 17]
+sizes_bf = [2, 5, 7, 10, 12]
 img_paths = ["img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg", "img5.jpg"]
 
 if __name__ == '__main__':
