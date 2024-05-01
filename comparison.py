@@ -155,11 +155,11 @@ def plot_onealg(lab):
 # Main function
 if __name__ == '__main__':
     scales = [0, 0.1, 0.3, 0.5, 0.7]  # Add more scales as needed
-    # times_dp, times_greedy, times_gpu = time_algorithms(scales)
-    # plot_runtime_vs_scale(scales, times_dp, times_greedy, times_gpu)
+    times_dp, times_greedy, times_gpu = time_algorithms(scales)
+    plot_runtime_vs_scale(scales, times_dp, times_greedy, times_gpu)
 
-    times_dp, times_greedy, times_gpu, times_brute = time_algorithms_b(scales)
-    plot_runtime_vs_scaleb(scales, times_dp, times_greedy, times_gpu, times_brute)
+    # times_dp, times_greedy, times_gpu, times_brute = time_algorithms_b(scales)
+    # plot_runtime_vs_scaleb(scales, times_dp, times_greedy, times_gpu, times_brute)
     # plot_onealg("greedy")
 '''
 import time

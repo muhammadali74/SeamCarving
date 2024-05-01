@@ -38,7 +38,7 @@ def time_algorithms(paths):
         tm1 = 0
         tm2 = 0
         tm3 = 0
-        for i in range(3):
+        for i in range(1):
             start_time = time.time()
             dynamic.main2('c', scale, image_path, 'output.jpg')
             end_time = time.time()
@@ -99,8 +99,9 @@ def plot_onealg(lab):
     plt.tight_layout()
     plt.show()
 
-img_paths = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg"]
-dims = [360, 480, 600, 720, 840]
+img_paths = ["img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg", "img5.jpg"]
+
+dims = [180, 360, 480, 720, 1080]
 # Main function
 if __name__ == '__main__':
     times_dp, times_greedy, times_gpu = time_algorithms(img_paths)
