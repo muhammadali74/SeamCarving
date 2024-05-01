@@ -72,7 +72,6 @@ def carve_column(img):
 
     mask = np.stack([mask] * 3, axis=2)
     img = img[mask].reshape((r, c - 1, 3))
-    print("column carved")
     return img
 
 def minimum_seam(img):
@@ -89,17 +88,6 @@ def minimum_seam(img):
     backtrack_d = cuda.to_device(backtrack)
 
     for i in range(1,r):
-
-        # idx = np.argmin(M[i-1, 0:2])
-        # backtrack[i, 0] = idx + 0
-        # min_energy = M[i-1, idx + 0]
-        # M[i, 0] += min_energy
-
-
-        # idx = np.argmin(M[i - 1, c - 2:c])
-        # backtrack[i, c-1] = idx + c - 1 - 1
-        # min_energy = M[i - 1, idx + c -1 - 1]
-        # M[i, c-1] += min_energy
         min_seam_helper[blockspergrid, threadsperblock](M_d, backtrack_d, c, i)
 
 
