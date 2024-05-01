@@ -99,7 +99,7 @@ def plot_onealg(lab):
     plt.tight_layout()
     plt.show()
 
-img_paths = ["img5.jpg", "img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg"]
+img_paths = ["img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg", "img5.jpg"]
 
 dims = [180, 360, 480, 720, 1080]
 # Main function
