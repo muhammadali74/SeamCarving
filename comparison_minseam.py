@@ -44,7 +44,7 @@ def time_minimum_seams(paths):
 
         print("Average time of Dynamic Programming Seam: ", avg_time_dp / 5)
         print("Average time of Greedy Algorithm Seam: ", avg_time_greedy / 5)
-        print("Average time of GPU Seam: ", avg_time_gpu / 5)
+        print("Average time of GPU Seam: ", avg_time_gpu / 5, "\n")
         times_dp.append(avg_time_dp / 5)
         times_greedy.append(avg_time_greedy / 5)
         times_gpu.append(avg_time_gpu / 5)
@@ -53,7 +53,7 @@ def time_minimum_seams(paths):
 
 
 # Function to plot the runtime of minimum seam functions for the image
-def plot_runtime_vs_scale(scales, times_seamcarving, times_greedy, times_bruteforce, times_gpu):
+def plot_runtime_vs_scale(scales, times_seamcarving, times_greedy, times_gpu):
     plt.figure(figsize=(10, 6))
     plt.plot(scales, times_seamcarving, label='Seam Carving')
     plt.plot(scales, times_greedy, label='Greedy')
