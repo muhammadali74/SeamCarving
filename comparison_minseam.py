@@ -115,7 +115,7 @@ if __name__ == '__main__':
     times_dp, times_greedy, times_gpu = time_minimum_seams(img_paths)
     times_bruteforce = time_bf_seam(bf_images)
     scales = np.arange(len(img_paths))
-    plot_runtimes_all(scales, times_dp, times_greedy, times_gpu)
+    plot_runtimes_all(scales, times_dp, times_greedy, times_bruteforce, times_gpu)
     plot_individual_methods("Dynamic Programming Seam Carving", scales, times_dp)
     plot_individual_methods("Greedy Approach Seam Carving", scales, times_greedy)
     plot_individual_methods("Bruteforce Seam Carving", scales, times_bruteforce)
