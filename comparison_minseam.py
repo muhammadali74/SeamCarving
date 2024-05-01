@@ -50,7 +50,7 @@ def time_minimum_seams(paths):
 
 def image_generator():
     # image size
-    sizes = [10, 15, 20, 25, 30]
+    sizes = [5, 10, 15, 20]
     img_paths = []
 
     # generates images
@@ -70,8 +70,9 @@ def time_bf_seam(paths):
     for image_path in paths:
         avg_time_bruteforce = 0 
         for _ in range(0, 5):
+            image = imread(image_path) 
             start_time = time.time()
-            brute_seam(image_path)  
+            brute_seam(image)  
             end_time = time.time()
             avg_time_bruteforce += end_time - start_time
 
