@@ -8,13 +8,11 @@ from imageio import imread
 # import files 
 from seamcarving import minimum_seam
 from greedy import greedy_seam
-# from bruteforce import brute_seam
 from dynamic_gpu import minimum_seam as gpu_seam
 
 def time_minimum_seams(paths):
     times_dp = []
     times_greedy = []
-    # times_bruteforce = []
     times_gpu = []
     for image_path in paths:
         avg_time_dp = 0
@@ -31,11 +29,6 @@ def time_minimum_seams(paths):
             greedy_seam(image)
             end_time = time.time()
             avg_time_greedy += end_time - start_time
-
-            # start_time = time.time()
-            # brute_seam(image)
-            # end_time = time.time()
-            # times_bruteforce.append(end_time - start_time)
 
             start_time = time.time()
             gpu_seam(image)
@@ -57,7 +50,6 @@ def plot_runtime_vs_scale(scales, times_seamcarving, times_greedy, times_gpu):
     plt.figure(figsize=(10, 6))
     plt.plot(scales, times_seamcarving, label='Seam Carving')
     plt.plot(scales, times_greedy, label='Greedy')
-    # plt.plot(scales, times_bruteforce, label='Brute Force')
     plt.plot(scales, times_gpu, label='Dynamic Programming (GPU)')
     plt.title('Runtime Comparison of Minimum Seam Functions for the Image')
     plt.xlabel('Image Index')
@@ -71,5 +63,5 @@ img_paths = ["img4.jpg", "img3.jpg", "img2.jpg", "imgg1.jpg", "img5.jpg"]
 
 # Main function
 if __name__ == '__main__':
-    times_seamcarving, times_greedy, times_gpu = time_minimum_seams(img_paths)
-    plot_runtime_vs_scale(np.arange(len(img_paths)), times_seamcarving, times_greedy, times_gpu)
+    times_dp, times_greedy, times_gpu = time_minimum_seams(img_paths)
+    plot_runtime_vs_scale(np.arange(len(img_paths)), times_dp, times_greedy, times_gpu)
