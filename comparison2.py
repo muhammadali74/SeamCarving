@@ -77,7 +77,7 @@ def plot_onealg(lab):
     scale  = 0.5
     for image_path in img_paths:
         tm = 0
-        for i in range(5):
+        for _ in range(5):
             start_time = time.time()
             if lab == "dynamic":
                 dynamic.main2('c', scale, image_path, 'output.jpg')
