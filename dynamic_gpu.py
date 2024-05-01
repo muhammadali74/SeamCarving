@@ -145,7 +145,18 @@ def min_seam_helper(M , backtrack, c, i):
         M[i, j] += min_energy
 
     
+def main2(axis, scale, inp, output):
+    img = imread(inp)
 
+    if axis == 'r':
+        out = crop_r(img, scale)
+    elif axis == 'c':
+        out = crop_c(img, scale)
+    else:
+        print('usage: carver.py <r/c> <scale> <image_in> <image_out>', file=sys.stderr)
+        sys.exit(1)
+    
+    imwrite(output, out)
 
 
 def main():
