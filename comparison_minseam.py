@@ -48,9 +48,9 @@ def time_minimum_seams(paths):
 # Function to plot the runtime of minimum seam functions for the image
 def plot_runtime_vs_scale(scales, times_seamcarving, times_greedy, times_gpu):
     plt.figure(figsize=(10, 6))
-    plt.plot(scales, times_seamcarving, label='Seam Carving')
+    plt.plot(scales, times_seamcarving, label='Dynamic Programming')
     plt.plot(scales, times_greedy, label='Greedy')
-    plt.plot(scales, times_gpu, label='Dynamic Programming (GPU)')
+    plt.plot(scales, times_gpu, label='GPU Parallelization')
     plt.title('Runtime Comparison of Minimum Seam Functions for the Image')
     plt.xlabel('Image Index')
     plt.ylabel('Runtime (s)')
