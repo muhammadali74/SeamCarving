@@ -58,6 +58,60 @@ def time_algorithms(scales):
 
     return times_dp, times_greedy, times_gpu
 
+
+
+def time_algorithms_b(scales):
+    times_dp = []
+    times_greedy = []
+    times_gpu = []
+    times_brute = []
+    for scale in scales:
+        tm1 = 0
+        tm2 = 0
+        tm3 = 0
+        tm4 = 0
+        for i in range(1):
+            start_time = time.time()
+            dynamic.main2('c', 1-scale, image_path, 'output.jpg')
+            end_time = time.time()
+            tm1 += end_time - start_time
+            
+            start_time = time.time()
+            greedy.main2('c', 1-scale, image_path, 'output.jpg')
+            end_time = time.time()
+            tm2 += end_time - start_time
+
+            start_time = time.time()
+            gpu.main2('c', 1-scale, image_path, 'output.jpg')
+            end_time = time.time()
+            tm3 += end_time - start_time
+
+            start_time = time.time()
+            bruteforce.main2('c', 1-scale, image_path, 'output.jpg')
+            end_time = time.time()
+            tm4 += end_time - start_time
+
+            
+        times_dp.append(tm1/5)
+        times_greedy.append(tm2/5)
+        times_gpu.append(tm3/5)
+        times_brute.append(tm4/5)
+
+    return times_dp, times_greedy, times_gpu, times_brute
+
+def plot_runtime_vs_scaleb(scales, times_dp, times_greedy, times_gpu, times_brute):
+    plt.figure(figsize=(10, 6))
+    plt.plot(scales, times_dp, label='Dynamic Programming')
+    plt.plot(scales, times_greedy, label='Greedy')
+    plt.plot(scales, times_gpu, label='GPU')
+    plt.plot(scales, times_brute, label='Bruteforce')
+    plt.title('Runtime Comparison of Algorithms for the Image at Different Scales')
+    plt.xlabel('Scale')
+    plt.ylabel('Runtime (s)')
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
 # Function to plot the runtime of algorithms for the image at different scales
 def plot_runtime_vs_scale(scales, times_dp, times_greedy, times_gpu):
     plt.figure(figsize=(10, 6))
@@ -101,8 +155,11 @@ def plot_onealg(lab):
 # Main function
 if __name__ == '__main__':
     scales = [0, 0.1, 0.3, 0.5, 0.7]  # Add more scales as needed
-    times_dp, times_greedy, times_gpu = time_algorithms(scales)
-    plot_runtime_vs_scale(scales, times_dp, times_greedy, times_gpu)
+    # times_dp, times_greedy, times_gpu = time_algorithms(scales)
+    # plot_runtime_vs_scale(scales, times_dp, times_greedy, times_gpu)
+
+    times_dp, times_greedy, times_gpu, times_brute = time_algorithms_b(scales)
+    plot_runtime_vs_scaleb(scales, times_dp, times_greedy, times_gpu, times_brute)
     # plot_onealg("greedy")
 '''
 import time
